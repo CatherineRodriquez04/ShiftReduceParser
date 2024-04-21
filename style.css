@@ -1,0 +1,195 @@
+/*
+Created by Catherine Rodriquez
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Itim', cursive;
+}
+
+body{
+    background-color: rgb(81, 96, 110);
+    height: 100vh;
+    padding-top: 1px
+}
+
+.title{
+    color: white;
+    text-align: left;
+    margin-left: 5em;
+    font-size: 40px;
+    margin-top: 1%;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.parsing-table {
+    margin-top: 1.2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.parser-table{
+    max-width: 800px;
+    margin-left: 3em;
+    max-height: 500px;
+    background-color: rgba(128, 128, 128, 0.671);
+}
+
+#output{
+    width: 300px;
+    height: 20px;
+    margin-left: 62em;
+    margin-top: -51em;
+    background-color: rgba(128, 128, 128, 0.671);
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* th {
+    background-color: #8e6767;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #8b6262;
+} */
+
+/* tbody tr:hover {
+    background-color: #ddd;
+} */
+
+.non-terminal-row {
+    font-weight: bold;
+}
+
+.terminal-row {
+    font-weight: normal;
+}
+
+.PR-title{
+    color: white;
+    justify-content: space-between;
+    margin-left: 1.5em;
+    margin-top: 1.5%;
+    text-align: left;
+    font-size: 38px;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.In-title{
+    color: white;
+    justify-content: center;
+    margin-right: 19em;
+    margin-top: 1.5%;
+    text-align: center;
+    font-size: 38px;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.Out-title{
+    color: white;
+    justify-content: center;
+    margin-top: 1.5%;
+    text-align: center;
+    font-size: 38px;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.input, .box{
+    display: flex;
+    justify-content: space-between;
+}
+
+#myInput{
+    width: 300px; 
+    margin-top: 0.5%;
+    height: 100px;
+    padding: 10px; 
+    margin-left: 3em;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    font-size: 18px; 
+    overflow-y: auto;
+    background-color: white;
+}
+
+.parseInput{
+    height: 50px;
+    width: 300px; 
+    padding: 10px; 
+    margin-top: 0.5%;
+    margin-right: 29em;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    font-size: 18px; 
+    overflow-y: auto;
+}
+
+#submitRule{
+    background-color: grey;
+    color: black;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    margin-left: -4em;
+    margin-top: 5em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.parseSubmit, .parseStep, .restart{
+    background-color: grey;
+    color: black;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    margin-left: 10em;
+    margin-right: -9em;
+    margin-top: -2.25em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+}
+
+#submitRule:hover, #submitParse:hover, #stepToParse:hover, #restart:hover{
+    transform: scale(1.1); 
+}
+
+.highlight::first-letter {
+    color: red; /* Set the color of the first letter */
+    /* Add any other styling properties as needed */
+}
+
+.hide{
+    display: none;
+}

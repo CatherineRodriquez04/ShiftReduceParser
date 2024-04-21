@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://font.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Itim&display=swap" rel="stylesheet">
+    <title>Shift Reduce Parser</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+</html>
+<body>
+    <div id="main-screen">
+        <main class="ShiftReduceParser">
+            <section class="title">
+                <h1>Shift Reduce Parser</h1>
+            </section>
+            <div class="parsing-table">
+                <table class="parser-table" id="parser">
+                    <thead>
+                        <tr>
+                            <th colspan="1">State</th>
+                            <th colspan="6">Action</th>
+                            <th colspan="3">Goto</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>id</th>
+                            <th>+</th>
+                            <th>*</th>
+                            <th>(</th>
+                            <th>)</th>
+                            <th>$</th>
+                            <th>E</th>
+                            <th>T</th>
+                            <th>F</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <!-- Table body will be populated dynamically using JavaScript -->
+                </tbody>
+                </table>
+                
+            </div>
+            <script src="table.js"></script>
+            <section class="input">
+                <div class="PR-title">
+                    <p>Production Rule</p>
+                </div>     
+                <div class="In-title">
+                    <p>Input</p>
+                </div>  
+            </section>
+            <section class="box">
+                <!-- <textarea id="myInput" name="grammarInput" placeholder="Enter grammar..." >E -> E + T 
+E -> T 
+T -> T * F 
+T -> F 
+F -> (E) 
+F -> id         </textarea> -->
+                <div id="myInput" name="grammarInput" placeholder="Enter grammar..." >
+                    1. E -> E + T <br>
+                    2. E -> T <br>
+                    3. T -> T * F <br>
+                    4. T -> F <br>
+                    5. F -> (E) <br>
+                    6. F -> id     
+                </div>
+                <div class="button1">
+                    <button id="submitRule">CHANGE RULE</button>
+                    <button class="parseSubmit" id="submitParse">SUBMIT</button>
+                    <button class="parseStep" id="stepToParse">STEP</button>
+                    <button id="restart" class="restart">RESTART</button>
+                </div>
+                <textarea id="parseInput" class="parseInput" placeholder="Enter grammar to parse..." type="text"
+                    value="id + ( id * id ) $">id + ( id * id ) $</textarea>  
+            </section> 
+            <div class="parsing-table">
+                <div class="outputTable">
+                    <table id="output">
+                        <caption class="Out-title">Output</caption>
+                        <!-- Table will be populated using JavaScript -->
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
