@@ -47,6 +47,21 @@ populateTable(parsingTable);
 
 //parsing
 $(document).ready(function() {
+    //modal for TicTacToe Game Mode Description
+    var modal = document.getElementById('modal');
+    var btn = document.getElementById("gameModalButton"); 
+    var span = document.getElementsByClassName("close-modal")[0]; //get the <span> element that closes the modal 
+    btn.onclick = function() { //when the user clicks the button, open the modal
+        modal.style.display = "block";
+    }
+    span.onclick = function() { //when the user clicks on <span> (x), close the modal
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) { //when the user clicks anywhere outside of the modal, close it
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
     //submit button to choose different parse inputs
     $('.parseStep').addClass('hide');
     $('.restart').addClass('hide');
@@ -235,10 +250,9 @@ $(document).ready(function() {
         const row = outputTable.insertRow(-1);
         const column1 = row.insertCell(0);
         const column2 = row.insertCell(1);
-        column1.width = "125";
+        column1.width = "140";
         column1.innerHTML = firstItem;
         column2.innerHTML = secondItem;
-
     }
 
     //initial step for parsing : figure out if it shifts, reduces, or is grammar
@@ -288,16 +302,15 @@ $(document).ready(function() {
             console.log("- expression: " + expression);
             [parsedArray, expression] = parse(expression, parsedArray)
             var joinedString = parsedArray.join("");
-            console.log("joined: " + joinedString);
+            console.log("joined sequence: " + joinedString);
 
             if (joinedString === "0E1" && expression === "$") {
                 $('.parseStep').addClass('hide');
                 $('.restart').removeClass('hide');
-                //document.getElementById("finishedMessage").style.display = 'block';  <- finish display on screen
                 previousState = JSON.parse(sessionStorage.getItem("previousState"));
                 previousAction = JSON.parse(sessionStorage.getItem("previousAction"));
                 document.getElementById('parser').rows[parseInt(previousState) + 2].cells[parseInt(previousAction)].style.backgroundColor = '';
-                document.getElementById('parser').rows[3].cells[6].style.backgroundColor = '#F4A460CC';
+                document.getElementById('parser').rows[3].cells[6].style.backgroundColor = '#A37D7D';
             }   
             itemInsert(outputTable, parsedArray.join(""), expression)   
         }    
