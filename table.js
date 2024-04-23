@@ -47,7 +47,7 @@ populateTable(parsingTable);
 
 //parsing
 $(document).ready(function() {
-    //modal for TicTacToe Game Mode Description
+    //modal for description
     var modal = document.getElementById('modal');
     var btn = document.getElementById("gameModalButton"); 
     var span = document.getElementsByClassName("close-modal")[0]; //get the <span> element that closes the modal 
