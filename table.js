@@ -80,6 +80,7 @@ $(document).ready(function() {
     //restart button -> update as i go along
     $('#restart').click(function() {
         console.log("Restart the Parse Steps!");
+        $('.announce').addClass('hide')
 
         //clear the output chart
         const outputTable = document.getElementById("output");
@@ -155,6 +156,9 @@ $(document).ready(function() {
                 return [9, "F"];
             default:
                 console.log("param \"" + expression.substring(0, 1) + "\" = invalid");
+                $('.announce').removeClass('hide').text("Invalid Input!");
+                $('.parseStep').addClass('hide');
+                $('.restart').removeClass('hide');
         }
 
         return -1;
@@ -264,17 +268,17 @@ $(document).ready(function() {
             console.log("Parse steps are completed");
         } 
         else if (element.substring(0, 1) === "r") {
-            console.log("Reduce");
+            console.log("reduce");
             parsedArray = reduceStep(element.substring(1, element.length), parsedArray);
         }
         else if (element.substring(0, 1) === "s") {
-            console.log("Shift");
+            console.log("shift");
             let arrToAdd;
             [arrToAdd, expression] = shiftStep(expression, parsedArray, element.substring(1, element.length));
             parsedArray = parsedArray.concat(arrToAdd);
         }  
         else {
-            console.log("Grammar");
+            console.log("grammar");
             parsedArray = getGrammar(Number(element), parsedArray)[0];
         }
         return [parsedArray, expression];
@@ -299,6 +303,15 @@ $(document).ready(function() {
         else {
             console.log("- parsed array: " + parsedArray);
             var expression = outputTable.rows[outputTable.rows.length - 1].cells[1].innerHTML;
+            //perform input validation
+            if (!isValidInput(expression)) {
+                //handle invalid input here
+                console.error("Invalid input detected:", expression);
+                $('.announce').removeClass('hide').text("Invalid Input!");
+                $('.parseStep').addClass('hide');
+                $('.restart').removeClass('hide');
+                return; 
+            }
             console.log("- expression: " + expression);
             [parsedArray, expression] = parse(expression, parsedArray)
             var joinedString = parsedArray.join("");
@@ -307,14 +320,20 @@ $(document).ready(function() {
             if (joinedString === "0E1" && expression === "$") {
                 $('.parseStep').addClass('hide');
                 $('.restart').removeClass('hide');
+                $('.announce').removeClass('hide').text("Steps Complete!");
                 previousState = JSON.parse(sessionStorage.getItem("previousState"));
                 previousAction = JSON.parse(sessionStorage.getItem("previousAction"));
                 document.getElementById('parser').rows[parseInt(previousState) + 2].cells[parseInt(previousAction)].style.backgroundColor = '';
-                document.getElementById('parser').rows[3].cells[6].style.backgroundColor = '#A37D7D';
+                document.getElementById('parser').rows[3].cells[6].style.backgroundColor = 'pink';
             }   
             itemInsert(outputTable, parsedArray.join(""), expression)   
         }    
         sessionStorage.setItem("parsedArray", JSON.stringify(parsedArray));
+    }
+
+    function isValidInput(expression) {
+        //check if the expression ends with '$'
+        return expression.trim().endsWith("$");
     }
 });
 
