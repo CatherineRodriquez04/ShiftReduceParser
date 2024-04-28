@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                 <tbody>
-                    <!-- table body will be populated dynamically using JavaScript -->
+                    <!-- Table body will be populated dynamically using JavaScript -->
                 </tbody>
                 </table>
                 
@@ -62,31 +62,31 @@
                 <div class="In-title">
                     <p>Input</p>
                 </div>  
-                <section class="box">
-                    <!-- <textarea id="myInput" name="grammarInput" placeholder="Enter grammar..." >E -> E + T 
-    E -> T 
-    T -> T * F 
-    T -> F 
-    F -> (E) 
-    F -> id         </textarea> -->
-                    <div id="myInput" name="grammarInput" placeholder="Enter grammar..." >
-                        1. E -> E + T <br>
-                        2. E -> T <br>
-                        3. T -> T * F <br>
-                        4. T -> F <br>
-                        5. F -> (E) <br>
-                        6. F -> id     
-                    </div>
-                    <div class="button1">
-                        <button id="submitRule">CHANGE RULE</button>
-                        <button class="parseSubmit" id="submitParse">SUBMIT</button>
-                        <button class="parseStep" id="stepToParse">STEP</button>
-                        <button id="restart" class="restart">RESTART</button>
-                    </div>
-                    <textarea id="parseInput" class="parseInput" placeholder="Enter grammar to parse..." type="text"
-                        value="id + ( id * id ) $">id + ( id * id ) $</textarea>  
-                </section> 
             </section>
+            <section class="box">
+                <!-- <textarea id="myInput" name="grammarInput" placeholder="Enter grammar..." >E -> E + T 
+E -> T 
+T -> T * F 
+T -> F 
+F -> (E) 
+F -> id         </textarea> -->
+                <div id="myInput" name="grammarInput" placeholder="Enter grammar..." >
+                    1. E -> E + T <br>
+                    2. E -> T <br>
+                    3. T -> T * F <br>
+                    4. T -> F <br>
+                    5. F -> (E) <br>
+                    6. F -> id     
+                </div>
+                <div class="button1">
+                    <button id="submitRule">CHANGE RULE</button>
+                    <button class="parseSubmit" id="submitParse">SUBMIT</button>
+                    <button class="parseStep" id="stepToParse">STEP</button>
+                    <button id="restart" class="restart">RESTART</button>
+                </div>
+                <textarea id="parseInput" class="parseInput" placeholder="Enter grammar to parse..." type="text"
+                    value="id + ( id * id ) $">id + ( id * id ) $</textarea>  
+            </section> 
             <div class="parsing-table">
                 <div class="outputTable">
                     <table id="output">
